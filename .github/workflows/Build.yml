@@ -20,20 +20,20 @@ jobs:
           lfs: true
     
       # Cache
-      - uses: actions/cache@v1.1.0
+      - uses: actions/cache@v2.1.2
         with:
           path: Library
           key: Library
 
       # Test
       - name: Run tests
-        uses: webbertakken/unity-test-runner@v1.4
+        uses: webbertakken/unity-test-runner@v1.7
         with:
           unityVersion: 2020.1.5f1
 
       # Build
       - name: Build project
-        uses: webbertakken/unity-builder@v0.10
+        uses: webbertakken/unity-builder@v1.4
         with:
           unityVersion: 2020.1.5f1
           targetPlatform: Android
