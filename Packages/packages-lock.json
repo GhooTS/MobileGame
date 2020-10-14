@@ -7,13 +7,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.device-simulator": {
-      "version": "2.2.3-preview",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
     "com.unity.ext.nunit": {
       "version": "1.0.0",
       "depth": 1,
@@ -44,6 +37,15 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.progrids": {
+      "version": "3.0.3-preview.6",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.settings-manager": "1.0.2"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "8.2.0",
       "depth": 1,
@@ -66,6 +68,13 @@
     "com.unity.searcher": {
       "version": "4.0.9",
       "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.settings-manager": {
+      "version": "1.0.2",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -121,6 +130,15 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.visualeffectgraph": {
+      "version": "7.3.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.shadergraph": "7.3.1"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.modules.ai": {
