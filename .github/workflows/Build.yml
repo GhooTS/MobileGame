@@ -29,13 +29,13 @@ jobs:
       - name: Run tests
         uses: webbertakken/unity-test-runner@v1.3
         with:
-          unityVersion: 2019.1.5f1
+          unityVersion: 2020.1.5f1
 
       # Build
       - name: Build project
         uses: webbertakken/unity-builder@v0.10
         with:
-          unityVersion: 2019.1.5f1
+          unityVersion: 2020.1.5f1
           targetPlatform: Android
           
       # Output 
