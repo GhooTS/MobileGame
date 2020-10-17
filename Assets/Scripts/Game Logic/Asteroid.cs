@@ -19,7 +19,7 @@ public class Asteroid : MonoBehaviour
 
         if (activeCells.Count != 0)
         {
-            var distanceVector = activeCells[Random.Range(0, activeCells.Count - 1)].transform.position - transform.position;
+            var distanceVector = activeCells[Random.Range(0, activeCells.Count)].transform.position - transform.position;
 
             var x = speed * Mathf.Sign(distanceVector.x);
             var z = distanceVector.z / Mathf.Abs(distanceVector.x / speed);

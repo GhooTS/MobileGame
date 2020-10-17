@@ -51,11 +51,7 @@ public class BallController : MonoBehaviour
 
     private void ReleasteBall()
     {
-        joint.connectedBody = null;
-        joint.autoConfigureConnectedAnchor = true;
-        ballAttached = false;
-        catcheCollider.enabled = false;
-        rangeCheckCollider.enabled = true;
+        FreeBall(true);
         ball.SetArmed(true);
         onBallReleasted?.Invoke();
     }
@@ -83,8 +79,18 @@ public class BallController : MonoBehaviour
         }
 
         catchedBall.AddForce(catchedBall.velocity.normalized * forceBuildUp);
-        Debug.Log("Added velocity");    
     }
+
+
+    public void FreeBall(bool isInRange)
+    {
+        joint.connectedBody = null;
+        joint.autoConfigureConnectedAnchor = true;
+        ballAttached = false;
+        catcheCollider.enabled = !isInRange;
+        rangeCheckCollider.enabled = isInRange;
+    }
+
 
     private void OnTriggerExit(Collider other)
     {

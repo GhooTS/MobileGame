@@ -42,6 +42,11 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
 
     public T GetOrCreate()
     {
+        return GetOrCreate(Vector3.zero, Quaternion.identity);
+    }
+
+    public T GetOrCreate(Vector3 position,Quaternion rotation)
+    {
         T instance = null;
 
         if (pool.Count == 0)
@@ -50,7 +55,7 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
 
             if (PoolSize > subscribers.Count || allowExcedingPoolSize)
             {
-                instance = Instantiate(prefab);
+                instance = Instantiate(prefab, position, rotation);
                 instance.gameObject.AddComponent<SpyT>().owner = this;
                 subscribers.Add(instance);
             }
@@ -59,6 +64,8 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
         {
             instance = pool.Pop();
             instance.gameObject.SetActive(true);
+            instance.transform.position = position;
+            instance.transform.rotation = rotation;
         }
 
         return instance;
@@ -73,6 +80,21 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
         else
         {
             pool.Push(poolObject);
+        }
+    }
+
+
+    /// <summary>
+    /// Collect all active object and put them to the pool 
+    /// </summary>
+    public void CollecteAll()
+    {
+        foreach (var subscriber in subscribers)
+        {
+            if(subscriber.gameObject.activeSelf)
+            {
+                subscriber.gameObject.SetActive(false);
+            }
         }
     }
 

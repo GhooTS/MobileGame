@@ -47,4 +47,4 @@ MonoBehaviour:
   maxObjectInPool: 15
   dynamicExtend: 1
   allowExcedingPoolSize: 0
-  preWarm: 1
+  preWarm: 0

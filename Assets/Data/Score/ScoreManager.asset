@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: ScoreManager
   m_EditorClassIdentifier: 
   scoreMultiplayer:
-  - comboRequired: 2
+  - comboRequired: 5
     multiplayer: 1.5
-  - comboRequired: 20
+  - comboRequired: 15
     multiplayer: 2
-  - comboRequired: 30
+  - comboRequired: 25
     multiplayer: 2.5
+  - comboRequired: 40
+    multiplayer: 5
   comboResetDuration: 5
   onScoreChanged:
     m_PersistentCalls:
