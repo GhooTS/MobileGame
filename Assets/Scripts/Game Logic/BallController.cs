@@ -59,6 +59,7 @@ public class BallController : MonoBehaviour
     private void PullBall()
     {
         ball.Velocity = (transform.position - ball.transform.position).normalized * pullSpeed;
+        onBallPulled?.Invoke();
     }
 
 

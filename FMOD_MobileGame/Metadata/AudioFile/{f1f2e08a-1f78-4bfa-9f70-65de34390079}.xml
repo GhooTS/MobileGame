@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{f1f2e08a-1f78-4bfa-9f70-65de34390079}">
+		<property name="assetPath">
+			<value>Epic Game Hits SFX/Sweet Tech Game Item Pick Up Sound.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.55773242630385489</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0c30cb36-c669-4200-945c-fa68f9db269c}</destination>
+		</relationship>
+	</object>
+</objects>

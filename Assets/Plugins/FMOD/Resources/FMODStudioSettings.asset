@@ -32,14 +32,14 @@ MonoBehaviour:
     Value: 3
   SampleRateSettings:
   - Platform: 1
-    Value: 48000
+    Value: 0
   - Platform: 2
     Value: 0
   - Platform: 20
     Value: 0
   LiveUpdateSettings:
   - Platform: 1
-    Value: 1
+    Value: 0
   - Platform: 2
     Value: 0
   - Platform: 20
@@ -77,7 +77,6 @@ MonoBehaviour:
     Value: 32
   Plugins: []
   MasterBanks:
-  - Master
   - Master
   Banks: []
   BanksToLoad: []

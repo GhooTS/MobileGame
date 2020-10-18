@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EncodableAsset" id="{57efd7f0-b377-48e8-9efd-4473bfd808a2}">
+		<property name="assetPath">
+			<value>Ultra SF Game Audio Weapons Pack v.1/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0c30cb36-c669-4200-945c-fa68f9db269c}</destination>
+		</relationship>
+	</object>
+</objects>

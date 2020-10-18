@@ -244,6 +244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7487555984200487228}
+  - component: {fileID: -1019274751088015867}
   m_Layer: 5
   m_Name: VolumeOption
   m_TagString: Untagged
@@ -273,6 +274,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &-1019274751088015867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6507708300886444723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeaf530af9d997b4f968c3fd2d8bd9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busController: {fileID: 11400000, guid: 3ba506f58c8b6484faef6fb37980469d, type: 2}
+  volumeSlider: {fileID: 6674903243791358515}
+  muteToggle: {fileID: 2309904838379151146}
 --- !u!1 &7540556850794469428
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,3 +549,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2273080445341280727, guid: 76c655585f6d0934f8dd4619c1877e11, type: 3}
   m_PrefabInstance: {fileID: 4839574911875642341}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6674903243791358515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2273080445341280726, guid: 76c655585f6d0934f8dd4619c1877e11, type: 3}
+  m_PrefabInstance: {fileID: 4839574911875642341}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

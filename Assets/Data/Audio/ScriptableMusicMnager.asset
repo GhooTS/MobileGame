@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a756d45e2fefbb419dfa2a566d438e5, type: 3}
+  m_Name: ScriptableMusicMnager
+  m_EditorClassIdentifier: 
+  createManagerIfMissing: 1
+  managerPrefab: {fileID: 4695780439953674381, guid: 0914e02f06ef06a479fffb51a5dff7e7, type: 3}
+  inMainMenuParam:
+    name: InMainMenu
+    isGlobal: 0
+  battleMusicID:
+    name: BattleMusicID
+    isGlobal: 0

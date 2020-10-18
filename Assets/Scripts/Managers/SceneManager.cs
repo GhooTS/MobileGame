@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class SceneManager : ScriptableObject
 {
 
+    public void LoadScene(int index)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(index);
+    }
+
     public void ExitApplication()
     {
 #if UNITY_EDITOR

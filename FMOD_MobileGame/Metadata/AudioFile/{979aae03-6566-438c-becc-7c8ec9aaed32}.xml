@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{979aae03-6566-438c-becc-7c8ec9aaed32}">
+		<property name="assetPath">
+			<value>Epic Game Hits SFX/Animation Block impact2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.40639455782312928</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0c30cb36-c669-4200-945c-fa68f9db269c}</destination>
+		</relationship>
+	</object>
+</objects>

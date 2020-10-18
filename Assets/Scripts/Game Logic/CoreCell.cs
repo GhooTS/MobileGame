@@ -11,12 +11,16 @@ public class CoreCell : MonoBehaviour
 
     public void Repair()
     {
+        if (Destroyed == false) return;
+
         Destroyed = false;
         onRepaired?.Invoke();
     }
 
     public void DestroyCell()
     {
+        if (Destroyed) return;
+
         Destroyed = true;
         onDestroyed?.Invoke();
     }

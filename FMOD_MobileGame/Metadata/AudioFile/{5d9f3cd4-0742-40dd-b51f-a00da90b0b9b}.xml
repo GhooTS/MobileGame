@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{5d9f3cd4-0742-40dd-b51f-a00da90b0b9b}">
+		<property name="assetPath">
+			<value>Epic Game Hits SFX/Wooden Game Item Hit.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.69689342403628118</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0c30cb36-c669-4200-945c-fa68f9db269c}</destination>
+		</relationship>
+	</object>
+</objects>

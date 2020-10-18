@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Ball : MonoBehaviour
@@ -7,6 +8,8 @@ public class Ball : MonoBehaviour
 
     public Vector3 Velocity {  get { return Rigidbody.velocity; } set { Rigidbody.velocity = value; } }
     public bool Armed { get; private set; }
+
+    public UnityEvent onCollision;
 
     private void Start()
     {
@@ -26,5 +29,11 @@ public class Ball : MonoBehaviour
     public void SetArmed(bool armed)
     {
         Armed = armed;
+    }
+
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        onCollision?.Invoke();
     }
 }

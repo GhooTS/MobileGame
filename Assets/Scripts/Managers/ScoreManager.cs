@@ -16,18 +16,23 @@ public class ScoreManager : ScriptableObject
     public UnityEvent onComboRestarted;
     public UnityEvent onScoreMultiplayerChanaged;
 
-    public float CurrentScore { get { return currentScore; } }
+    public float CurrentScore { get; private set; }
     public int CurrentCombo { get; private set; }
     public float ComboResetDuration { get { return comboResetDuration; } }
     public float CurrentScoreMultiplayer { get; private set; }
-    public float BestScore { get { return bestScore; } }
+    public float BestScore { get; private set; }
     public bool HasNewRecord { get; private set; }
 
 
-    private float currentScore;
-    private float bestScore;
     private float lastScoreUpdateTime;
     private int multiplayerIndex;
+
+    private const string bestScoreKey = "PLAYER_BESTSCORE"; 
+
+    private void OnEnable()
+    {
+        BestScore = PlayerPrefs.GetFloat(bestScoreKey); 
+    }
 
     public void ResetAll()
     {
@@ -37,7 +42,7 @@ public class ScoreManager : ScriptableObject
 
     public void ResetScore()
     {
-        currentScore = 0f;
+        CurrentScore = 0f;
         lastScoreUpdateTime = 0f;
         onScoreChanged?.Invoke();
     }
@@ -55,9 +60,7 @@ public class ScoreManager : ScriptableObject
     {
         UpdateScoreMultiplayer();
 
-        currentScore += score * CurrentScoreMultiplayer;
-
-        UpdateBestScore();
+        CurrentScore += score * CurrentScoreMultiplayer;
 
         onScoreChanged?.Invoke();
     }
@@ -95,12 +98,13 @@ public class ScoreManager : ScriptableObject
         return (multiplayerIndex != -1 && multiplayerIndex < scoreMultiplayer.Length ? scoreMultiplayer[multiplayerIndex].multiplayer : 1f);
     }
 
+
     public void UpdateBestScore()
     {
-        HasNewRecord = currentScore > bestScore;
+        HasNewRecord = CurrentScore > BestScore;
         if(HasNewRecord)
         {
-            bestScore = currentScore;
+            BestScore = CurrentScore;
         }
     }
 

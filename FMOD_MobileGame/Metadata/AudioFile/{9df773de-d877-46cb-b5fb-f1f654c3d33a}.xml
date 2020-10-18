@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{9df773de-d877-46cb-b5fb-f1f654c3d33a}">
+		<property name="assetPath">
+			<value>Future City Free/BoxyKu Future City Loop 11.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>33.982312925170071</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0c30cb36-c669-4200-945c-fa68f9db269c}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="DataFile" id="{b5e1e7cb-511b-44b6-aa1e-ec439bee4706}">
+		<property name="assetPath">
+			<value>Free_Fireworks__44.1k_16bit/Nova Sound - Flames Fireworks.pdf</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0c30cb36-c669-4200-945c-fa68f9db269c}</destination>
+		</relationship>
+	</object>
+</objects>

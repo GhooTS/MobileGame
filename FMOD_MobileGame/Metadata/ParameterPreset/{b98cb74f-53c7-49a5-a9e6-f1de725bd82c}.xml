@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{b98cb74f-53c7-49a5-a9e6-f1de725bd82c}">
+		<property name="name">
+			<value>BattleMusicID</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a55bbf49-f63a-43e5-b100-f4e6d05b3a48}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{64e908a3-f8a4-4169-8613-7424d91d97f1}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{64e908a3-f8a4-4169-8613-7424d91d97f1}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>12</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

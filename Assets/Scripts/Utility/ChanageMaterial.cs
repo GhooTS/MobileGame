@@ -24,6 +24,13 @@ public class ChanageMaterial : MonoBehaviour
 
         //Get Materials from renderer
         var rendererMaterials = meshRenderer.materials;
+
+        if(materialIndex > rendererMaterials.Length)
+        {
+            Debug.LogError("Provided material index is incorrect", this);
+            return;
+        }
+
         //Chanage material
         rendererMaterials[materialIndex] = materials[index];
         //Assinged chanaged materials back to renderer
