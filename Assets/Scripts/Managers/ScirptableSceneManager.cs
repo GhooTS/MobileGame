@@ -3,12 +3,12 @@ using UnityEngine.SceneManagement;
 
 
 [CreateAssetMenu(menuName = "SceneManager")]
-public class SceneManager : ScriptableObject
+public class ScirptableSceneManager : ScriptableObject
 {
 
     public void LoadScene(int index)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(index);
+        SceneManager.LoadScene(index);
     }
 
     public void ExitApplication()

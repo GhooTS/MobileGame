@@ -89,11 +89,17 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
     /// </summary>
     public void CollecteAll()
     {
-        foreach (var subscriber in subscribers)
+        for (int i = subscribers.Count - 1; i >= 0; i--)
         {
-            if(subscriber.gameObject.activeSelf)
+            if(subscribers[i] == null)
             {
-                subscriber.gameObject.SetActive(false);
+                subscribers.RemoveAt(i);
+                continue;
+            }
+
+            if (subscribers[i].gameObject.activeSelf)
+            {
+                subscribers[i].gameObject.SetActive(false);
             }
         }
     }

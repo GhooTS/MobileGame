@@ -28,20 +28,6 @@ public class ProceduralSpawner : MonoBehaviour
     private float asteroidSpeed;
     private float spawnInterval;
 
-
-    private void OnEnable()
-    {
-        if (gameController == null) gameController = FindObjectOfType<GameController>();
-        gameController.onGameStarted.AddListener(StartSpawning);
-        gameController.onGameEnding.AddListener(ResetSpawner);
-    }
-
-    private void OnDisable()
-    {
-        gameController.onGameStarted.RemoveListener(StartSpawning);
-        gameController.onGameEnding.RemoveListener(ResetSpawner);
-    }
-
     public void StartSpawning()
     {
         if (Spawning) ResetSpawner();

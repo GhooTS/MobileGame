@@ -105,6 +105,7 @@ public class ScoreManager : ScriptableObject
         if(HasNewRecord)
         {
             BestScore = CurrentScore;
+            PlayerPrefs.SetFloat(bestScoreKey, BestScore);
         }
     }
 

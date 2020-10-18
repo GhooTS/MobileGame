@@ -21,7 +21,7 @@ MonoBehaviour:
     multiplayer: 2.5
   - comboRequired: 40
     multiplayer: 5
-  comboResetDuration: 5
+  comboResetDuration: 7.5
   onScoreChanged:
     m_PersistentCalls:
       m_Calls: []

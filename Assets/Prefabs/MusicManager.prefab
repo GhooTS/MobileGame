@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 4600409895325265818}
   - component: {fileID: 4695780439953674381}
   - component: {fileID: 1133491205768662152}
+  - component: {fileID: 1432342832}
+  - component: {fileID: 1432342833}
+  - component: {fileID: 7480728744426930661}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -62,3 +65,96 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3ba506f58c8b6484faef6fb37980469d, type: 2}
   - {fileID: 11400000, guid: 744a7aac92fd4bd458241f2c86794e13, type: 2}
   - {fileID: 11400000, guid: d2538cd8c1179bc4db0cfe127f49c9d0, type: 2}
+--- !u!114 &1432342832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680462056980181126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516af55a91020a043baa6c4c37a352dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenerName: Switch to battle music
+  listenerDescription: 
+  gameEvents:
+  - {fileID: 11400000, guid: 31108151b940a10419c5e9bac6066b20, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 50bd472709c5992488fbbb09a3029661, type: 2}
+        m_TargetAssemblyTypeName: ScirptableMusicManager, Assembly-CSharp
+        m_MethodName: SetInMainMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1432342833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680462056980181126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516af55a91020a043baa6c4c37a352dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenerName: Switch to main menu music
+  listenerDescription: 
+  gameEvents:
+  - {fileID: 11400000, guid: 32aec2bfa3c14344e97b2b1970fbb5ca, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 50bd472709c5992488fbbb09a3029661, type: 2}
+        m_TargetAssemblyTypeName: ScirptableMusicManager, Assembly-CSharp
+        m_MethodName: SetInMainMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &7480728744426930661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680462056980181126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516af55a91020a043baa6c4c37a352dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenerName: Play music
+  listenerDescription: 
+  gameEvents:
+  - {fileID: 11400000, guid: 26e7737e2552d5341965eac37206deb9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4695780439953674381}
+        m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
