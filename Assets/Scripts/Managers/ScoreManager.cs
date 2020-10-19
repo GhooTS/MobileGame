@@ -95,7 +95,7 @@ public class ScoreManager : ScriptableObject
 
     private float GetScoreMultiplayer()
     {
-        return (multiplayerIndex != -1 && multiplayerIndex < scoreMultiplayer.Length ? scoreMultiplayer[multiplayerIndex].multiplayer : 1f);
+        return multiplayerIndex != -1 && multiplayerIndex < scoreMultiplayer.Length ? scoreMultiplayer[multiplayerIndex].multiplayer : 1f;
     }
 
 

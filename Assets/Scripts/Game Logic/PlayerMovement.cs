@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerControls = GetComponent<IPlayerControls>();
 
+        //Calculate player move limits
         moveDistance = (boardSize - playerSize) / 2f;
     }
 
@@ -19,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Vector3 newPosition = transform.position;
+        //Get player input
         newPosition.z += playerControls.GetVerticalInput() * speed * Time.deltaTime;
+        //Limit player movement
         newPosition.z = Mathf.Clamp(newPosition.z,-moveDistance,moveDistance);
 
         transform.position = newPosition;

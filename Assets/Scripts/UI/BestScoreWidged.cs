@@ -11,10 +11,10 @@ public class BestScoreWidged : MonoBehaviour
 
     private void OnEnable()
     {
-        UpdateScore();
+        UpdateBestScore();
     }
 
-    private void UpdateScore()
+    private void UpdateBestScore()
     {
         bestScoreText.text = scoreManager.BestScore.ToString();
         if (scoreManager.HasNewRecord)

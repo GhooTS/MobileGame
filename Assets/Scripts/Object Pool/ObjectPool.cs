@@ -9,22 +9,31 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
 {
     public T prefab;
     public int maxObjectInPool = 15;
+    [Tooltip("Allow pool to double its size when running out of space")]
     public bool dynamicExtend;
-    public bool allowExcedingPoolSize;
-    public bool preWarm = false;
+    [Tooltip("Allow pool to created object even if the pool is full, these objects will be destroyed, when returning to the pool")]
+    public bool allowExceedPoolSize;
+    [Tooltip("Whether objects should be created on awake")]
+    public bool prewarm = false;
+    /// <summary>
+    /// pool of free objects
+    /// </summary>
     private readonly Stack<T> pool = new Stack<T>();
     /// <summary>
-    /// All objects craeted by this pool
+    /// All objects craeted by this pool or belongs to this object pool
     /// </summary>
     private readonly List<T> subscribers = new List<T>();
 
+    /// <summary>
+    /// Current size of the pool
+    /// </summary>
     public int PoolSize { get; private set; }
 
     private void Awake()
     {
         PoolSize = maxObjectInPool;
 
-        if (preWarm)
+        if (prewarm)
         {
             int size = maxObjectInPool - subscribers.Count;
             T instance;
@@ -39,12 +48,17 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Get object from pool or create new one
+    /// </summary>
     public T GetOrCreate()
     {
         return GetOrCreate(Vector3.zero, Quaternion.identity);
     }
 
+    /// <summary>
+    /// Get object from pool or create new one
+    /// </summary>
     public T GetOrCreate(Vector3 position,Quaternion rotation)
     {
         T instance = null;
@@ -53,7 +67,7 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
         {
             if (ShoudExtend()) PoolSize *= 2;
 
-            if (PoolSize > subscribers.Count || allowExcedingPoolSize)
+            if (PoolSize > subscribers.Count || allowExceedPoolSize)
             {
                 instance = Instantiate(prefab, position, rotation);
                 instance.gameObject.AddComponent<SpyT>().owner = this;
@@ -71,9 +85,12 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
         return instance;
     }
 
+    /// <summary>
+    /// return object to pool, use by ObjectPoolSpy
+    /// </summary>
     public void ReturnToPool(T poolObject)
     {
-        if (allowExcedingPoolSize && subscribers.Count >= PoolSize)
+        if (allowExceedPoolSize && subscribers.Count >= PoolSize)
         {
             Destroy(poolObject.gameObject);
         }
@@ -85,7 +102,7 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
 
 
     /// <summary>
-    /// Collect all active object and put them to the pool 
+    /// Collect all active object and put them back to the pool 
     /// </summary>
     public void CollecteAll()
     {
@@ -104,18 +121,18 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
         }
     }
 
-    public void UnsubscribedFromPool(T poolObject)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="poolObject"></param>
+    public bool UnsubscribedFromPool(T poolObject)
     {
-        subscribers.Remove(poolObject);
+        return subscribers.Remove(poolObject);
     }
 
-
-    public void Clear()
-    {
-        pool.Clear();
-        subscribers.Clear();
-    }
-
+    /// <summary>
+    /// Clear pool and destroy objects belongs to this objectPool
+    /// </summary>
     public void ClearAndDestroy()
     {
         foreach (var subscriber in subscribers)
@@ -123,6 +140,12 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
             Destroy(subscriber.gameObject);
         }
         Clear();
+    }
+
+    private void Clear()
+    {
+        pool.Clear();
+        subscribers.Clear();
     }
 
     private bool ShoudExtend()

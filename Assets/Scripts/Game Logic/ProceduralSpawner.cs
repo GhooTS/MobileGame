@@ -3,7 +3,6 @@
 public class ProceduralSpawner : MonoBehaviour
 {
     public AsteriodPool pool;
-    private GameController gameController;
 
     [Header("Spawn interval Options")]
     [Min(0)]
@@ -71,14 +70,18 @@ public class ProceduralSpawner : MonoBehaviour
 
     private void Spawn()
     {
+        //Get Random Position
         var x = Random.value * spawnBounds.size.x + spawnBounds.min.x;
         var y = Random.value * spawnBounds.size.y + spawnBounds.min.y;
         var z = Random.value * spawnBounds.size.z + spawnBounds.min.z;
+
+        //Get asteroid from pool and set its position and speed
         pool.GetOrCreate(new Vector3(x, y, z), Quaternion.identity).SetSpeed(asteroidSpeed);
     }
 
     private void OnDrawGizmosSelected()
     {
+        //Draw spawn bounds
         Gizmos.DrawWireCube(spawnBounds.center, spawnBounds.size);
     }
 }
