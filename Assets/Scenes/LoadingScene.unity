@@ -589,7 +589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb83b0702087a042852fc75552af8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingBar: {fileID: 147790480}
   sceneIndex: 1
   onSceneLoaded:
     m_PersistentCalls:
@@ -814,6 +813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122419140}
   - component: {fileID: 2122419141}
+  - component: {fileID: 2122419142}
   m_Layer: 5
   m_Name: LoadingBar
   m_TagString: Untagged
@@ -850,6 +850,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122419139}
   m_CullTransparentMesh: 0
+--- !u!114 &2122419142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122419139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027e35a945fe76445b98b182a4b677db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingBar: {fileID: 147790480}
+  sceneLoader: {fileID: 1817829692}
 --- !u!1 &2137276940
 GameObject:
   m_ObjectHideFlags: 0
