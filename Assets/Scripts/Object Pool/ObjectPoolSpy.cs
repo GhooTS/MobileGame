@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class ObjectPoolSpy<T,SpyT> : MonoBehaviour
-    where T : MonoBehaviour
+    where T : Component
     where SpyT : ObjectPoolSpy<T,SpyT>
 {
     public  ObjectPool<T,SpyT> owner;

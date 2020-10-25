@@ -4,7 +4,7 @@ using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
 public abstract class ObjectPool<T,SpyT> : MonoBehaviour
-    where T : MonoBehaviour
+    where T : Component
     where SpyT : ObjectPoolSpy<T,SpyT>
 {
     public T prefab;
