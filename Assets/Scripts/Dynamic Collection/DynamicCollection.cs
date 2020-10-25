@@ -33,6 +33,11 @@ public class DynamicCollection<T> : DynamicCollectionBase
         return false;
     }
 
+    /// <summary>
+    /// Use this method to subscribe to the collection
+    /// </summary>
+    /// <param name="subscriber">Subscriber of this collection</param>
+    /// <returns>returns whether subscription was successful</returns>
     public bool Subscribe(T subscriber)
     {
         if (!Contain(subscriber))
@@ -54,6 +59,11 @@ public class DynamicCollection<T> : DynamicCollectionBase
         return false;
     }
 
+    /// <summary>
+    /// Use this method to unsubscribe from the collection
+    /// </summary>
+    /// <param name="subscriber">Subscriber of this collectionr</param>
+    /// <returns>returns whether unsubscription was successful</returns>
     public bool Unsubscribe(T subscriber)
     {
         return elements.Remove(subscriber);
