@@ -81,7 +81,7 @@ public class GameObjectPool : MonoBehaviour
 
         if (pool.Count == 0)
         {
-            if (ShoudExtend()) PoolSize *= 2;
+            if (ShouldExtend()) PoolSize *= 2;
 
             if (PoolSize > subscribers.Count || allowExceedPoolSize)
             {
@@ -97,27 +97,7 @@ public class GameObjectPool : MonoBehaviour
         return instance;
     }
 
-    /// <summary>
-    /// return object to pool, use by ObjectPoolSpy
-    /// </summary>
-    private void ReturnToPool(GameObject poolObject)
-    {
-        if (allowExceedPoolSize && subscribers.Count >= PoolSize)
-        {
-            Destroy(poolObject.gameObject);
-        }
-        else
-        {
-            pool.Push(poolObject);
-        }
-    }
-    /// <summary>
-    /// return object to pool, use by GameObjectPoolSpy
-    /// </summary>
-    private void UnsubscribedFromPool(GameObject poolObject)
-    {
-        subscribers.Remove(poolObject);
-    }
+    
 
     /// <summary>
     /// Collect all active object and put them back to the pool 
@@ -137,7 +117,28 @@ public class GameObjectPool : MonoBehaviour
         subscribers.Clear();
     }
 
-    private bool ShoudExtend()
+    /// <summary>
+    /// return object to pool, use by ObjectPoolSpy
+    /// </summary>
+    private void ReturnToPool(GameObject poolObject)
+    {
+        if (allowExceedPoolSize && subscribers.Count >= PoolSize)
+        {
+            Destroy(poolObject.gameObject);
+        }
+        else
+        {
+            pool.Push(poolObject);
+        }
+    }
+
+    private void UnsubscribedFromPool(GameObject poolObject)
+    {
+        subscribers.Remove(poolObject);
+    }
+
+
+    private bool ShouldExtend()
     {
         return dynamicExtend && PoolSize <= subscribers.Count;
     }

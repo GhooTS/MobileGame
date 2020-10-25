@@ -171,7 +171,7 @@ MonoBehaviour:
   Path: event:/Ball/Ball Release
   guid: 5b97f99b95bc6f46ac0d012b81f6b78c
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -246,7 +246,7 @@ MonoBehaviour:
   Path: event:/Ball/Ball Add Force
   guid: f17e2d32cab7ea4c8cb996c7e0c81f12
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD_MobileGame/Build/Mobile/Master.strings.bank
   SubDir: 
-  lastModified: 637386366202136841
+  lastModified: 637387262856127561
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -309,6 +309,23 @@ MonoBehaviour:
   Max: 11
   Default: 0
   Exists: 0
+--- !u!114 &-7066240903866741864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/GameMusic/BattleMusicID
+  m_EditorClassIdentifier: 
+  Name: BattleMusicID
+  Min: 0
+  Max: 12
+  Default: 1
+  Exists: 1
 --- !u!114 &-6517749553893842118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +359,7 @@ MonoBehaviour:
   Min: 0
   Max: 12
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &-5827142951205608055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,13 +410,13 @@ MonoBehaviour:
   Path: event:/Music/GameMusic
   guid: 3c4fb6f54387fe4e8b8a7f6d419e905c
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 7322139234382201155}
-  - {fileID: -6314035051155037639}
+  - {fileID: 7857156579298030744}
+  - {fileID: -7066240903866741864}
   MinDistance: 0
   MaxDistance: 0
   Length: 67964
@@ -418,7 +435,7 @@ MonoBehaviour:
   Path: event:/Ball/Ball Hit Wall
   guid: 83fdcd3a828b2245aa8f56cdd9dd845f
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -479,7 +496,7 @@ MonoBehaviour:
   Path: event:/CoreCells/Core Cell Destroy
   guid: 44b35a1aafe16c4a8927728ec113667d
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -537,7 +554,7 @@ MonoBehaviour:
   Path: event:/Ball/Ball Pull
   guid: 062b94a0254e26419dad71671bdeff2d
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -616,6 +633,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-1674268063552602590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD_MobileGame/Build/Mobile/Master.bank
+  SubDir: 
+  lastModified: 637387262856117567
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-1171132018799103639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +684,7 @@ MonoBehaviour:
   Path: event:/Ball/Ball Catch
   guid: 9da3d86c66eef540aefcc0188a8de462
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -691,7 +726,7 @@ MonoBehaviour:
   lastModified: 637386366202046898
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-815692182004958308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,7 +794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -7416228711633785506}
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   EditorEvents:
   - {fileID: -5138937091548912877}
   - {fileID: 2998987976772297811}
@@ -773,10 +808,10 @@ MonoBehaviour:
   - {fileID: -1064799521074681519}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   StringsBanks:
   - {fileID: -7416228711633785506}
-  stringsBankWriteTime: 637386366202136841
+  stringsBankWriteTime: 637387262856127561
   cacheVersion: 3
 --- !u!114 &359387378076989461
 MonoBehaviour:
@@ -929,7 +964,7 @@ MonoBehaviour:
   Path: event:/Asteriod/Asteroid Explosion
   guid: afb40fd04489a44f87000ae6d678f4b8
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1111,7 +1146,7 @@ MonoBehaviour:
   Path: event:/UI/UI Click
   guid: 0c423993785bcf41a82a736a7b0eb094
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1380,7 +1415,7 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &7488121102906534818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,6 +1467,23 @@ MonoBehaviour:
   Max: 2
   Default: 1
   Exists: 0
+--- !u!114 &7857156579298030744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/GameMusic/InMainMenu
+  m_EditorClassIdentifier: 
+  Name: InMainMenu
+  Min: 0
+  Max: 2
+  Default: 1
+  Exists: 1
 --- !u!114 &7935286839131331192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1482,7 +1534,7 @@ MonoBehaviour:
   Path: event:/Ball/Ball Destroy
   guid: 7c624ed1d1b3d843916e31f3921322f9
   Banks:
-  - {fileID: -854173638419555088}
+  - {fileID: -1674268063552602590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

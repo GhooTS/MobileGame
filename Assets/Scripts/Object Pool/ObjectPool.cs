@@ -83,7 +83,7 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
 
         if (pool.Count == 0)
         {
-            if (ShoudExtend()) PoolSize *= 2;
+            if (ShouldExtend()) PoolSize *= 2;
 
             if (PoolSize > subscribers.Count || allowExceedPoolSize)
             {
@@ -100,6 +100,44 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
 
         return instance;
     }
+    
+
+
+    /// <summary>
+    /// Collect all active object and put them back to the pool 
+    /// </summary>
+    public void CollecteAll()
+    {
+        for (int i = subscribers.Count - 1; i >= 0; i--)
+        {
+            if(subscribers[i] == null)
+            {
+                subscribers.RemoveAt(i);
+                continue;
+            }
+
+            if (subscribers[i].gameObject.activeSelf)
+            {
+                subscribers[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+
+   
+
+    /// <summary>
+    /// Clear pool and destroy objects belongs to this objectPool
+    /// </summary>
+    public void ClearAndDestroy()
+    {
+        foreach (var subscriber in subscribers)
+        {
+            Destroy(subscriber.gameObject);
+        }
+        Clear();
+    }
+
 
     private T CreteaInstance()
     {
@@ -124,46 +162,9 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// Collect all active object and put them back to the pool 
-    /// </summary>
-    public void CollecteAll()
-    {
-        for (int i = subscribers.Count - 1; i >= 0; i--)
-        {
-            if(subscribers[i] == null)
-            {
-                subscribers.RemoveAt(i);
-                continue;
-            }
-
-            if (subscribers[i].gameObject.activeSelf)
-            {
-                subscribers[i].gameObject.SetActive(false);
-            }
-        }
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="poolObject"></param>
     private bool UnsubscribedFromPool(T poolObject)
     {
         return subscribers.Remove(poolObject);
-    }
-
-    /// <summary>
-    /// Clear pool and destroy objects belongs to this objectPool
-    /// </summary>
-    public void ClearAndDestroy()
-    {
-        foreach (var subscriber in subscribers)
-        {
-            Destroy(subscriber.gameObject);
-        }
-        Clear();
     }
 
     private void Clear()
@@ -172,7 +173,7 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
         subscribers.Clear();
     }
 
-    private bool ShoudExtend()
+    private bool ShouldExtend()
     {
         return dynamicExtend && PoolSize <= subscribers.Count;
     }
