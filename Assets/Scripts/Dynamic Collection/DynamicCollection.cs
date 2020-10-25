@@ -40,7 +40,7 @@ public class DynamicCollection<T> : DynamicCollectionBase
     /// <returns>returns whether subscription was successful</returns>
     public bool Subscribe(T subscriber)
     {
-        if (!Contain(subscriber))
+        if (subscriber != null && !Contain(subscriber))
         {
             elements.Add(subscriber);
             return true;
