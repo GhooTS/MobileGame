@@ -29,22 +29,40 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
     /// </summary>
     public int PoolSize { get; private set; }
 
+    private ObjectPoolOwner owner;
+
+    public class ObjectPoolOwner
+    {
+        private readonly ObjectPool<T, SpyT> owner;
+
+        public ObjectPoolOwner(ObjectPool<T, SpyT> owner)
+        {
+            this.owner = owner;
+        }
+
+        public void ReturnToPool(T poolObject)
+        {
+            owner.ReturnToPool(poolObject);
+        }
+
+        public bool UnsubscribedFromPool(T poolObject)
+        {
+            return owner.UnsubscribedFromPool(poolObject);
+        }
+    }
+
     private void Awake()
     {
+        owner = new ObjectPoolOwner(this);
         PoolSize = maxObjectInPool;
 
         if (prewarm)
         {
             int size = maxObjectInPool - subscribers.Count;
-            T instance;
             for (int i = 0; i < size; i++)
             {
-                instance = Instantiate(prefab);
-                instance.gameObject.AddComponent<SpyT>().owner = this;
-                subscribers.Add(instance);
-                instance.gameObject.SetActive(false);
+                CreteaInstance().gameObject.SetActive(false);
             }
-
         }
     }
 
@@ -69,9 +87,7 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
 
             if (PoolSize > subscribers.Count || allowExceedPoolSize)
             {
-                instance = Instantiate(prefab, position, rotation);
-                instance.gameObject.AddComponent<SpyT>().owner = this;
-                subscribers.Add(instance);
+                instance = CreteaInstance();
             }
         }
         else
@@ -85,10 +101,18 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
         return instance;
     }
 
+    private T CreteaInstance()
+    {
+        T instance = Instantiate(prefab);
+        instance.gameObject.AddComponent<SpyT>().Owner = owner;
+        subscribers.Add(instance);
+        return instance;
+    }
+
     /// <summary>
     /// return object to pool, use by ObjectPoolSpy
     /// </summary>
-    public void ReturnToPool(T poolObject)
+    private void ReturnToPool(T poolObject)
     {
         if (allowExceedPoolSize && subscribers.Count >= PoolSize)
         {
@@ -125,7 +149,7 @@ public abstract class ObjectPool<T,SpyT> : MonoBehaviour
     /// 
     /// </summary>
     /// <param name="poolObject"></param>
-    public bool UnsubscribedFromPool(T poolObject)
+    private bool UnsubscribedFromPool(T poolObject)
     {
         return subscribers.Remove(poolObject);
     }

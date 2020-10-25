@@ -2,7 +2,19 @@
 
 public class GameObjectPoolSyp : MonoBehaviour
 {
-    public GameObjectPool owner;
+    public GameObjectPool.GameObjectPoolOwner Owner 
+    {
+        set
+        {
+            if(owner != null && owner != value)
+            {
+                owner.UnsubscribedFromPool(gameObject);
+            }
+
+            owner = value;
+        }
+    }
+    private GameObjectPool.GameObjectPoolOwner owner;
 
     private void OnDisable()
     {

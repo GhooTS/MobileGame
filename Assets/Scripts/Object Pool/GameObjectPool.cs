@@ -16,29 +16,60 @@ public class GameObjectPool : MonoBehaviour
     /// All objects craeted by this pool
     /// </summary>
     private readonly List<GameObject> subscribers = new List<GameObject>();
+    private GameObjectPoolOwner owner;
 
     /// <summary>
     /// Current size of the pool
     /// </summary>
     public int PoolSize { get; private set; }
 
+    public class GameObjectPoolOwner
+    {
+        private readonly GameObjectPool owner;
+
+        public GameObjectPoolOwner(GameObjectPool owner)
+        {
+            this.owner = owner;
+        }
+
+
+        public void ReturnToPool(GameObject poolObject)
+        {
+            owner.ReturnToPool(poolObject);
+        }
+        /// <summary>
+        /// return object to pool, use by GameObjectPoolSpy
+        /// </summary>
+        public void UnsubscribedFromPool(GameObject poolObject)
+        {
+            owner.UnsubscribedFromPool(poolObject);
+        }
+
+    }
+
+
     private void Awake()
     {
         PoolSize = maxObjectInPool;
+        owner = new GameObjectPoolOwner(this);
 
         if (prewarm)
         {
             int size = maxObjectInPool - subscribers.Count;
-            GameObject instance;
             for (int i = 0; i < size; i++)
             {
-                instance = Instantiate(prefab);
-                instance.gameObject.AddComponent<GameObjectPoolSyp>().owner = this;
-                subscribers.Add(instance);
-                instance.gameObject.SetActive(false);
+                CreateInstance().gameObject.SetActive(false);
             }
 
         }
+    }
+
+    private GameObject CreateInstance()
+    {
+        GameObject instance = Instantiate(prefab);
+        instance.gameObject.AddComponent<GameObjectPoolSyp>().Owner = owner;
+        subscribers.Add(instance);
+        return instance;
     }
 
     /// <summary>
@@ -54,9 +85,7 @@ public class GameObjectPool : MonoBehaviour
 
             if (PoolSize > subscribers.Count || allowExceedPoolSize)
             {
-                instance = Instantiate(prefab);
-                instance.gameObject.AddComponent<GameObjectPoolSyp>().owner = this;
-                subscribers.Add(instance);
+                instance = CreateInstance();
             }
         }
         else
@@ -71,7 +100,7 @@ public class GameObjectPool : MonoBehaviour
     /// <summary>
     /// return object to pool, use by ObjectPoolSpy
     /// </summary>
-    public void ReturnToPool(GameObject poolObject)
+    private void ReturnToPool(GameObject poolObject)
     {
         if (allowExceedPoolSize && subscribers.Count >= PoolSize)
         {
@@ -85,7 +114,7 @@ public class GameObjectPool : MonoBehaviour
     /// <summary>
     /// return object to pool, use by GameObjectPoolSpy
     /// </summary>
-    public void UnsubscribedFromPool(GameObject poolObject)
+    private void UnsubscribedFromPool(GameObject poolObject)
     {
         subscribers.Remove(poolObject);
     }
