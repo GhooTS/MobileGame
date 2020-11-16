@@ -12736,6 +12736,7 @@ GameObject:
   - component: {fileID: 1651144400}
   - component: {fileID: 1651144403}
   - component: {fileID: 1651144402}
+  - component: {fileID: 1651144404}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -12938,7 +12939,7 @@ MonoBehaviour:
         m_CallState: 2
 --- !u!114 &1651144399
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12970,7 +12971,7 @@ MonoBehaviour:
         m_CallState: 2
 --- !u!114 &1651144400
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13001,7 +13002,7 @@ MonoBehaviour:
         m_CallState: 2
 --- !u!114 &1651144401
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13032,7 +13033,7 @@ MonoBehaviour:
         m_CallState: 2
 --- !u!114 &1651144402
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13063,7 +13064,7 @@ MonoBehaviour:
         m_CallState: 2
 --- !u!114 &1651144403
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13083,6 +13084,37 @@ MonoBehaviour:
       - m_Target: {fileID: 1651144397}
         m_TargetAssemblyTypeName: ProceduralSpawner, Assembly-CSharp
         m_MethodName: StartSpawning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1651144404
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651144392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516af55a91020a043baa6c4c37a352dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenerName: Reset Time Scale
+  listenerDescription: 
+  gameEvents:
+  - {fileID: 11400000, guid: 31108151b940a10419c5e9bac6066b20, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 681c46a3ce97a0b4da562c1648f3b049, type: 2}
+        m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
+        m_MethodName: SetDefualtTimeScale
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
