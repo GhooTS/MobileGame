@@ -21,6 +21,8 @@ jobs:
         targetPlatform:
           - Android # Build an Android .apk standalone app.
           - iOS # Build an iOS player.
+        testMode:
+          - playmode
     steps:
       - uses: actions/checkout@v2
         with:
@@ -37,6 +39,8 @@ jobs:
         with:
           #projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
+          testMode: ${{ matrix.testMode }}
+          artifactsPath: ${{ matrix.testMode }}-artifacts
       - uses: actions/upload-artifact@v1
         with:
           name: Test results (all modes)
