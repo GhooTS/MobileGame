@@ -37,7 +37,6 @@ jobs:
         with:
           #projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
-          customParameters: -nographics
       - uses: actions/upload-artifact@v1
         with:
           name: Test results (all modes)
