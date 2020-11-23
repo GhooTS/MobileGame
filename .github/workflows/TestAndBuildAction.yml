@@ -1,53 +1,43 @@
-name: Build 
+name: Actions 😎
 
 on:
   pull_request: {}
-  push: { branches: [CI] }
+  push: { branches: [main] }
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
 jobs:
-  buildAndTestForPlatforms:
-    name: Build for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
+  build:
+    name: Build my project ✨
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        projectName:
-         - MobileGame
-        unityVersion:
-          - 2020.1.5f1
-        targetPlatform:
-          - Android # Build an Android .apk standalone app.
-          - iOS # Build an iOS player.
     steps:
-      - uses: actions/checkout@v2
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
           lfs: true
+
+      # Cache
       - uses: actions/cache@v1.1.0
         with:
-          path: ${{ matrix.projectName }}/Library
-          key: Library- ${{ matrix.projectName }}-${{ matrix.targetPlatform }}
-          restore-keys: |
-            Library-${{ matrix.projectName }}-
-            Library-
-      - uses: webbertakken/unity-test-runner@v1.6
-        id: testRunner
+          path: Library
+          key: Library
+
+      # Test
+      - name: Run tests
+        uses: webbertakken/unity-test-runner@v1.7
         with:
-          customParameters: '-nographics'
-          #projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
-      - uses: actions/upload-artifact@v1
+          unityVersion: 2020.1.5f1
+
+      # Build
+      - name: Unity - Builder
+        uses: webbertakken/unity-builder@v2.0-aplha-5
         with:
-          name: Test results (all modes)
-          path: ${{ steps.testRunner.outputs.artifactsPath }}
-      - uses: webbertakken/unity-builder@v2.0-aplha-5
-        with:
-          #projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
-          targetPlatform: ${{ matrix.targetPlatform }}
-          versioning: Semantic
+          unityVersion: 2020.1.5f1
+          targetPlatform: Android
+
+      # Output
       - uses: actions/upload-artifact@v1
         with:
           name: Build
