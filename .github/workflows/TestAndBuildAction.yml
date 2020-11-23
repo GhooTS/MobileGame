@@ -32,9 +32,10 @@ jobs:
           restore-keys: |
             Library-${{ matrix.projectName }}-
             Library-
-      - uses: webbertakken/unity-test-runner@v1.7
+      - uses: webbertakken/unity-test-runner@v1.6
         id: testRunner
         with:
+          customParameters: '-nographics'
           #projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
       - uses: actions/upload-artifact@v1
