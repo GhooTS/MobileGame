@@ -1,0 +1,45 @@
+name: Actions 😎
+
+on:
+  pull_request: {}
+  push: { branches: [main] }
+
+env:
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+jobs:
+  buildAndTestForSomePlatforms:
+    name: Build for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        unityVersion:
+          - 2020.1.9f1
+        targetPlatform:
+          - Android # Build an Android player
+          - iOS # Build an iOS player.
+    steps:
+      - uses: actions/checkout@v2.3.4
+        with:
+          lfs: true
+      - uses: actions/cache@v2.1.3
+        with:
+          path: ${{ matrix.projectPath }}/Library
+          key: Library-${{ matrix.targetPlatform }}
+      - uses: webbertakken/unity-test-runner@v1.7
+        id: testRunner
+        with:
+          unityVersion: ${{ matrix.unityVersion }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Test results (all modes)
+          path: ${{ steps.testRunner.outputs.artifactsPath }}
+      - uses: webbertakken/unity-builder@v2.0-aplha-5
+        with:
+          unityVersion: ${{ matrix.unityVersion }}
+          targetPlatform: ${{ matrix.targetPlatform }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build
+          path: build
