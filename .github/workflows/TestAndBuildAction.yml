@@ -32,7 +32,7 @@ jobs:
 
       # Build
       - name: Unity - Builder
-        uses: webbertakken/unity-builder@v2.0-alpha-1
+        uses: webbertakken/unity-builder@v1.5
         with:
           unityVersion: 2020.1.9f1
           targetPlatform: Android
