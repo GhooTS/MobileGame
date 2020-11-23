@@ -14,12 +14,12 @@ jobs:
     steps:
       # Checkout
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
         with:
           lfs: true
 
       # Cache
-      - uses: actions/cache@v1.1.0
+      - uses: actions/cache@v2.1.3
         with:
           path: Library
           key: Library
@@ -32,14 +32,14 @@ jobs:
 
       # Build
       - name: Unity - Builder
-        uses: webbertakken/unity-builder@v2.0-aplha-4
+        uses: webbertakken/unity-builder@v2.0-alpha-4
         with:
           unityVersion: 2020.1.9f1
           targetPlatform: Android
           versioning: Semantic
 
       # Output
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v2
         with:
           name: Build
           path: build
