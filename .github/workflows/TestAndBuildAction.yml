@@ -35,7 +35,7 @@ jobs:
         uses: webbertakken/unity-builder@v2.0-aplha-5
         with:
           unityVersion: 2020.1.9f1
-          targetPlatform: StandaloneWindows64
+          targetPlatform: Android
           versioning: Semantic
 
       # Output
