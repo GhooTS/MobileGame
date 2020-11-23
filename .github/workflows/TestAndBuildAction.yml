@@ -36,6 +36,7 @@ jobs:
         with:
           unityVersion: 2020.1.5f1
           targetPlatform: Android
+          versioning: Semantic
 
       # Output
       - uses: actions/upload-artifact@v1
