@@ -52,7 +52,7 @@ public class PlayerControlls : MonoBehaviour,IPlayerControls
         #if UNITY_EDITOR 
         return Input.GetAxisRaw("Vertical");
         #else
-        return false;
+        return 0;
         #endif
     }
 
