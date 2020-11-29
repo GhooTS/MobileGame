@@ -25,8 +25,9 @@ public class PlayerControlls : MonoBehaviour,IPlayerControls
 
         #if UNITY_EDITOR 
         return Input.GetKeyDown(KeyCode.Space);
+        #else
+        return false;
 		#endif
-		return false;
     }
 
     public float GetVerticalInput()
@@ -50,13 +51,14 @@ public class PlayerControlls : MonoBehaviour,IPlayerControls
 
         #if UNITY_EDITOR 
         return Input.GetAxisRaw("Vertical");
-		#endif
-		return 0;
+        #else
+        return false;
+        #endif
     }
-	
 
 
-	private bool IsOverUI(int toucheIndex)
+
+    private bool IsOverUI(int toucheIndex)
     {
         var eventSystem = EventSystem.current;
 

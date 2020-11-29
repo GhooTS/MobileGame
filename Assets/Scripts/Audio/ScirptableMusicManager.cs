@@ -7,9 +7,9 @@ public class ScirptableMusicManager : ScriptableObject
     public bool createManagerIfMissing;
     public MusicManager managerPrefab;
     [SerializeField]
-    private FMODParameter inMainMenuParam;
+    private FMODParameter inMainMenuParam = default; 
     [SerializeField]
-    private FMODParameter battleMusicID;
+    private FMODParameter battleMusicID = default;
 
 
     public void Start()

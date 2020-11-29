@@ -21,7 +21,7 @@ public class ProceduralSpawner : MonoBehaviour
     public Bounds spawnBounds;
 
     [SerializeField]
-    private CoreCellDynamicCollection cells;
+    private CoreCellDynamicCollection cells = default;
     public bool Spawning { get; private set; } = false;
 
     private float nextSpawn = 0;

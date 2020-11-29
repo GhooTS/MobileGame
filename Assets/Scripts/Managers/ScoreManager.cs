@@ -6,9 +6,9 @@ using UnityEngine.Events;
 public class ScoreManager : ScriptableObject
 {
     [SerializeField]
-    private ScoreMultiplayer[] scoreMultiplayer;
+    private ScoreMultiplayer[] scoreMultiplayer = default;
     [SerializeField]
-    private float comboResetDuration;
+    private float comboResetDuration = default;
 
     public UnityEvent onScoreChanged;
 

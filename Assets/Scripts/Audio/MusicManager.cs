@@ -7,7 +7,7 @@ public class MusicManager : MonoBehaviour
     public static MusicManager Current { get; private set; }
     [EventRef]
     [SerializeField]
-    private string musicEventPath;
+    private string musicEventPath = default;
     private StudioEventEmitter emitter;
 
 

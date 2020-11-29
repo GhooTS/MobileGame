@@ -5,7 +5,7 @@
 public class GameObjectPoolReference : ScriptableObject
 {
     [SerializeField]
-    private GameObjectPool objectPoolPrefab;
+    private GameObjectPool objectPoolPrefab = default;
     private GameObjectPool instance;
     public GameObjectPool Instance
     {
