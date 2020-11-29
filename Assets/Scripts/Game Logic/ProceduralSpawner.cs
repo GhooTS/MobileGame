@@ -19,6 +19,9 @@ public class ProceduralSpawner : MonoBehaviour
 
 
     public Bounds spawnBounds;
+
+    [SerializeField]
+    private CoreCellDynamicCollection cells;
     public bool Spawning { get; private set; } = false;
 
     private float nextSpawn = 0;
@@ -70,13 +73,17 @@ public class ProceduralSpawner : MonoBehaviour
 
     private void Spawn()
     {
+        if (cells.Count <= 0) return; 
+
         //Get Random Position
         var x = Random.value * spawnBounds.size.x + spawnBounds.min.x;
         var y = Random.value * spawnBounds.size.y + spawnBounds.min.y;
         var z = Random.value * spawnBounds.size.z + spawnBounds.min.z;
 
+        Vector3 targetPostion = cells[Random.Range(0, cells.Count)].transform.position;
+
         //Get asteroid from pool and set its position and speed
-        pool.GetOrCreate(new Vector3(x, y, z), Quaternion.identity).SetSpeed(asteroidSpeed);
+        pool.GetOrCreate(new Vector3(x, y, z), Quaternion.identity).SetTarget(targetPostion).SetSpeed(asteroidSpeed);
     }
 
     private void OnDrawGizmosSelected()

@@ -3,32 +3,32 @@ using UnityEngine.Events;
 
 public class Asteroid : MonoBehaviour
 {
-    public CoreCellDynamicCollection activeCells;
     public UnityEvent onHitCore;
     public UnityEvent onDestroy;
     public Vector3 Velocity { get; private set; } = Vector3.zero;
+    private Vector3 targetPosition;
 
     private void Update()
     {
         transform.position += Velocity * Time.deltaTime;
     }
 
-    public void SetSpeed(float speed)
+
+    public Asteroid SetTarget(Vector3 targetPosition)
     {
+        this.targetPosition = targetPosition;
 
+        return this;
+    }
 
-        if (activeCells.Count != 0)
-        {
-            var distanceVector = activeCells[Random.Range(0, activeCells.Count)].transform.position - transform.position;
+    public Asteroid SetSpeed(float speed)
+    {
+        var distanceVector = targetPosition - transform.position;
+        var x = speed * Mathf.Sign(distanceVector.x);
+        var z = distanceVector.z / Mathf.Abs(distanceVector.x / speed);
+        Velocity = new Vector3(x, 0, z);
 
-            var x = speed * Mathf.Sign(distanceVector.x);
-            var z = distanceVector.z / Mathf.Abs(distanceVector.x / speed);
-            Velocity = new Vector3(x, 0, z);
-        }
-        else
-        {
-            Velocity = Vector3.zero;
-        }
+        return this;
     }
 
     private void OnTriggerEnter(Collider other)
